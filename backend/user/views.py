@@ -1,37 +1,19 @@
-from django.contrib.auth import authenticate, login
-from rest_framework import permissions
+from rest_framework.permissions import AllowAny
+from django.contrib.auth import get_user_model
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from rest_framework.generics import CreateAPIView
-from django.contrib.auth import get_user_model # If used custom user model
+from rest_framework import status
 
 from .serializers import UserSerializer
 
+User = get_user_model()
 
-class CreateUserView(CreateAPIView):
-
-    model = get_user_model()
-    permission_classes = [
-        permissions.AllowAny
-    ]
-    serializer_class = UserSerializer
-
-
-@api_view(('POST',))
-def login_view(request):
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    if username is None or password is None:
-        return Response({
-            "errors": {
-                "__all__": "Please enter both username and password"
-            }
-        }, status=400)
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return Response({"detail": "Success"})
-    return Response(
-        {"detail": "Invalid credentials"},
-        status=400,
-    )
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def create_auth(request):
+    serialized = UserSerializer(data=request.POST)
+    if serialized.is_valid():
+        serialized.save()
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
+    else:
+        return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)
