@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # My apps
     'api.apps.ApiConfig',
     'user.apps.UserConfig',
+    'todo.apps.TodoConfig',
 ]
 
 AUTH_USER_MODEL = 'user.User'
