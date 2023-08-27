@@ -27,5 +27,9 @@ class ToDo(models.Model):
         verbose_name = 'ToDo'
         verbose_name_plural = 'ToDo'
 
+    @property
+    def owner(self):
+        return self.group.owner
+
     def __str__(self) -> str:
         return self.title
