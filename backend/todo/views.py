@@ -18,7 +18,7 @@ class GroupViewSet(viewsets.ModelViewSet):
         """
         Checking how many groups a user has.
         """
-        max_records = 2
+        max_records = 5
         user = self.request.user
         
         groups_count = Group.objects.filter(owner=user).count()
@@ -46,7 +46,7 @@ class ToDoViewSet(viewsets.ModelViewSet):
         Checking the existence of a group
         and the number of entries in it.
         """
-        max_records = 1
+        max_records = 50
         user = self.request.user
 
         group = get_object_or_404(
