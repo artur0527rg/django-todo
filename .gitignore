@@ -1,4 +1,6 @@
-# backend
+# BACKEND
 .venv
 db.sqlite3
 **/__pycache__/
+backend/media/*
+!backend/media/avatar.png
