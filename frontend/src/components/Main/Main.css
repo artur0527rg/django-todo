@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+.content-container{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    gap: 20px;
+}
+
+.content-container  input{
+    font-family: 'VT323';
+    width: 90%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 1rem 0;
+    background: transparent;
+    padding: 0.4rem 0;
+    text-align: center;
+}
+
+.content-container input:last-child{
+    color: rgb(213, 219, 254);
+}
+
+.item{
+    flex: 1;
+    display: flex;
+    width: 500px;
+    padding: 50px 0;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(3, 3, 3, 0.2);
+    box-shadow: 5px 5px 5px rgb(100, 100, 100);
+}
+
+
+.item form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[type=submit] {
+    margin-top: 10px;
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.groups{
+    margin-top: 20px;
+}
+
+.list > div{
+    display: list-item;
+    margin-left: 1.3em;
+    color: white;
+    padding: 5px;
+    font-family: 'VT323';
+    font-size: 2rem;
+    white-space: pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.list > div:hover{
+    text-decoration: underline;
+}
+
+.list > div.active{
+    color: rgb(255, 112, 112);
+}
+
+.is_checked{
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.sticky{
+    border: 3px solid #3f3f3f;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 70px;
+    right: 10px;
+  }
+  
+  .sticky:hover{
+    background-color: rgba(255, 255, 255, 0.482);
+  }
