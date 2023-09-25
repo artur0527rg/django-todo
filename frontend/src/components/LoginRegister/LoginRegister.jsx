@@ -35,7 +35,6 @@ const LoginRegister = ({ jwt, setJwt }) => {
                 swal(message)
             } else{
                 setJwt(response['access'])
-                
             }
             
         })

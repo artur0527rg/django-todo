@@ -6,9 +6,10 @@ import PrivateRoute from "./components/PrivateRouter/PrivateRouter"
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('jwt'))
-
   useEffect(()=>{
-    localStorage.setItem('jwt', jwt)
+    if (jwt){
+      localStorage.setItem('jwt', jwt)
+    }
   }, [jwt])
 
   const router = createBrowserRouter([
@@ -17,7 +18,7 @@ function App() {
       element: <LoginRegister jwt={jwt} setJwt={setJwt}/>,
     },
     {
-      path: '/',
+      path: '/*',
       element: <PrivateRoute check={jwt}><Main jwt={jwt} setJwt={setJwt} /></PrivateRoute>,
     },
   ])

@@ -4,3 +4,6 @@ db.sqlite3
 **/__pycache__/
 backend/media/*
 !backend/media/avatar.png
+
+# FRONTEND
+node_modules
