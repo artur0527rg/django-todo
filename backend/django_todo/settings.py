@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Installed apps
     'rest_framework',
     'rest_framework_simplejwt',
+    "corsheaders",
     # My apps
     'api.apps.ApiConfig',
     'user.apps.UserConfig',
@@ -50,6 +51,10 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'user.User'
 
 MIDDLEWARE = [
+    # CORS
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    # Default
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -149,3 +154,11 @@ SIMPLE_JWT = {
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+CORS_ALLOWED_ORIGINS = [
+  'http://localhost:80'
+  'http://localhost:443'
+  'https://localhost:80'
+  'https://localhost:443'
+]
