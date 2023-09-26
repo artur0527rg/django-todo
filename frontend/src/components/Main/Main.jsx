@@ -178,6 +178,7 @@ const Main = ({ jwt, setJwt }) => {
     }
 
     const logOut = () => {
+        localStorage.removeItem('jwt')
         setJwt(undefined)
     }
 
